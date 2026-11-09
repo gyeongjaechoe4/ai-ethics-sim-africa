@@ -18,7 +18,7 @@ scripts/validate.py      CI 검증 스크립트 (스키마 + Σw=1.00±0.005)
 
 ## 로컬 실행 (Python 3.11)
 ```bash
-git clone <repo-url> && cd <repo>
+git clone https://github.com/gyeongjaechoe4/ai-ethics-sim-africa.git && cd ai-ethics-sim-africa
 python3.11 -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
