@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Culture preset",
+  "type": "object",
+  "required": ["meta", "weights", "sources", "rationale", "limits"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["culture_code", "team", "version", "draft_mode"],
+      "properties": {
+        "culture_code": {"enum": ["USA", "CHINA", "EUROPE", "KOREA", "LATIN_AM", "MIDDLE_E", "AFRICA"]},
+        "team": {"type": "string", "minLength": 1},
+        "version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"},
+        "draft_mode": {"enum": ["non-ai", "ai-assisted"]}
+      }
+    },
+    "weights": {
+      "type": "object",
+      "required": ["emotion", "social", "moral", "identity"],
+      "additionalProperties": false,
+      "properties": {
+        "emotion": {"type": "number", "minimum": 0, "maximum": 0.5},
+        "social": {"type": "number", "minimum": 0, "maximum": 0.5},
+        "moral": {"type": "number", "minimum": 0, "maximum": 0.5},
+        "identity": {"type": "number", "minimum": 0, "maximum": 0.5}
+      }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": ["url"],
+        "properties": {"title": {"type": "string"}, "url": {"type": "string", "pattern": "^https?://"}}
+      }
+    },
+    "rationale": {"type": "string", "minLength": 1},
+    "limits": {"type": "array", "minItems": 2, "items": {"type": "string", "minLength": 1}}
+  }
+}

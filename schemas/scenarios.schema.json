@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "scenarios.json",
+  "type": "object",
+  "required": ["version", "scenarios"],
+  "properties": {
+    "version": {"type": "string"},
+    "scenarios": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "culture_scope", "domain", "title", "context", "options", "sources"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[A-Z]{2}-[A-Z]{2,3}-\\d{2}$"},
+          "culture_scope": {"enum": ["USA", "CHINA", "EUROPE", "KOREA", "LATIN_AM", "MIDDLE_E", "AFRICA"]},
+          "domain": {"type": "string", "minLength": 1},
+          "title": {"type": "string", "minLength": 1},
+          "context": {"type": "string", "minLength": 30, "maxLength": 200},
+          "options": {
+            "type": "object",
+            "required": ["A", "B"],
+            "additionalProperties": false,
+            "properties": {
+              "A": {"$ref": "#/$defs/option"},
+              "B": {"$ref": "#/$defs/option"}
+            }
+          },
+          "sources": {"type": "array", "minItems": 1, "items": {"type": "string", "pattern": "^https?://"}}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "r": {"type": "number", "minimum": -1, "maximum": 1},
+    "option": {
+      "type": "object",
+      "required": ["label", "reward"],
+      "properties": {
+        "label": {"type": "string", "minLength": 1},
+        "reward": {
+          "type": "object",
+          "required": ["emotion", "social", "moral", "identity"],
+          "additionalProperties": false,
+          "properties": {
+            "emotion": {"$ref": "#/$defs/r"},
+            "social": {"$ref": "#/$defs/r"},
+            "moral": {"$ref": "#/$defs/r"},
+            "identity": {"$ref": "#/$defs/r"}
+          }
+        }
+      }
+    }
+  }
+}

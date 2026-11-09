@@ -1,0 +1,22 @@
+# 이 파일은 빈 양식입니다. CI 검증 대상이 아닙니다 (_ 로 시작하는 파일은 건너뜀).
+# W1: 이 양식을 복사해 presets/AFRICA.yaml 을 만들고, 팀이 LLM 없이 직접 채워 PR로 올립니다.
+meta:
+  culture_code: ""        # 예: "AFRICA"
+  team: ""                # 예: "team-XX"
+  version: "0.1.0"
+  draft_mode: "non-ai"    # W1은 반드시 non-ai
+weights:                  # 합 = 1.00 (±0.005), 각 0~1, 한 축 > 0.5 금지
+  emotion:
+  social:
+  moral:
+  identity:
+sources:                  # 2건 이상, URL 필수 (Hofstede·WVS 각 1건 이상 권장)
+  - title: ""
+    url: ""
+  - title: ""
+    url: ""
+rationale: >-
+  # 가중치와 조사 지표의 매핑을 3~5문장으로
+limits:                   # 2개 이상. 문화결정론·시점편향·집단내 이질성 중 ≥1
+  - ""
+  - ""
