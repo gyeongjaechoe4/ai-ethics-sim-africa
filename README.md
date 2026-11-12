@@ -8,7 +8,10 @@
 presets/_TEMPLATE.yaml   W1 프리셋 빈 양식 (복사해서 AFRICA.yaml 작성, CI 제외)
 presets/AFRICA.yaml      W1 산출물 (팀이 LLM 없이 직접 작성)
 data/scenarios.json      W2 산출물 (시나리오 ≥3건)
-rl/agent.py              W3 학습기
+rl/agent.py              W3 학습기 (ε-greedy Q-learning, 4개 지표)
+rl/reference_presets.yaml 강의자료 예시 가중치 (presets/<CODE>.yaml 없을 때 대체값)
+results/                 W3 실험 결과 (runs.csv, summary.json)
+tests/                   재현성 테스트 (pytest)
 app.py                   Streamlit 진입점
 audit.md                 W3 감사 보고서
 schemas/                 프리셋·시나리오 JSON Schema
@@ -23,6 +26,8 @@ python3.11 -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 python scripts/validate.py       # 스키마 검증
+python -m rl.agent               # W3: 7문화 × 5seed 학습 → results/
+pytest -q                        # 재현성 테스트 (CI와 동일)
 streamlit run app.py             # http://localhost:8501
 ```
 
