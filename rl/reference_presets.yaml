@@ -1,0 +1,12 @@
+# 강의자료(강송희, 2026) "7개 문화권 예시 가중치" 표를 그대로 옮긴 값.
+# 학습용 예시이며 팀의 조사 결과가 아니다. presets/<CODE>.yaml 이 있으면 그 값이 우선한다.
+# (W1 Non-AI 원칙: presets/AFRICA.yaml 은 팀이 직접 작성한다. 이 파일은 실험 실행용 대체값일 뿐이다.)
+source: "강송희, Global AI Ethics Simulator 강의자료 slide '7개 문화권 예시 가중치', 2026"
+cultures:
+  USA:      {emotion: 0.20, social: 0.15, moral: 0.40, identity: 0.25}
+  CHINA:    {emotion: 0.15, social: 0.40, moral: 0.30, identity: 0.15}
+  EUROPE:   {emotion: 0.20, social: 0.20, moral: 0.45, identity: 0.15}
+  KOREA:    {emotion: 0.25, social: 0.35, moral: 0.25, identity: 0.15}
+  LATIN_AM: {emotion: 0.35, social: 0.30, moral: 0.15, identity: 0.20}
+  MIDDLE_E: {emotion: 0.20, social: 0.25, moral: 0.20, identity: 0.35}
+  AFRICA:   {emotion: 0.30, social: 0.35, moral: 0.15, identity: 0.20}
