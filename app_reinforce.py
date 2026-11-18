@@ -1,13 +1,22 @@
 # app.py — TU Korea AI Management: Ethical AI Simulation (with Strategy Entropy)
 # Author: Prof. Songhee Kang
 # Repository-optimized version: reproducibility, typing, English UI, stability improvements
+#
+# Team AFRICA changes (2026-11-18, see git diff against the first commit of this file):
+#   - Scenario set selector: team scenarios from data/scenarios.json (both slide and template formats)
+#     or the original 3 default scenarios.
+#   - Preset source selector: app defaults (original), lecture-slide examples (rl/reference_presets.yaml).
+#     A team preset file presets/<CULTURE>.yaml, when present, overrides that culture's weights.
+#   - Default culture = AFRICA. Agent, reward (x10), entropy, diversity and Pearson r logic are unchanged.
 
 from __future__ import annotations
 
 from dataclasses import dataclass
 from typing import Dict, List, Literal, Tuple
 
+import json
 import random
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -18,6 +27,7 @@ from scipy.stats import pearsonr, entropy as scipy_entropy
 
 Action = Literal["A", "B"]
 FRAMEWORKS: Tuple[str, ...] = ("emotion", "social", "moral", "identity")
+ROOT = Path(__file__).resolve().parent
 
 
 # =========================
@@ -97,6 +107,47 @@ def get_culture_presets() -> Dict[str, Dict[str, float]]:
 def normalize_weights(weights: Dict[str, float]) -> Dict[str, float]:
     total = float(sum(weights.values())) or 1.0
     return {k: float(v) / total for k, v in weights.items()}
+
+
+# --- Team additions: read repo files ---
+def _read_yaml(path: Path):
+    import yaml  # pyyaml is in requirements.txt
+    return yaml.safe_load(path.read_text(encoding="utf-8"))
+
+
+@st.cache_data(show_spinner=False)
+def get_slide_presets() -> Dict[str, Dict[str, float]]:
+    """Lecture-slide example weights (rl/reference_presets.yaml)."""
+    path = ROOT / "rl" / "reference_presets.yaml"
+    if not path.exists():
+        return {}
+    return {c: {k: float(w[k]) for k in FRAMEWORKS} for c, w in _read_yaml(path)["cultures"].items()}
+
+
+def apply_team_presets(presets: Dict[str, Dict[str, float]]) -> Tuple[Dict[str, Dict[str, float]], List[str]]:
+    """presets/<CULTURE>.yaml (team-written, W1) overrides the given weights."""
+    out, used = {c: dict(w) for c, w in presets.items()}, []
+    for c in list(out):
+        path = ROOT / "presets" / f"{c}.yaml"
+        if path.exists():
+            w = _read_yaml(path)["weights"]
+            out[c] = {k: float(w[k]) for k in FRAMEWORKS}
+            used.append(c)
+    return out, used
+
+
+@st.cache_data(show_spinner=False)
+def get_team_scenarios() -> List[Scenario]:
+    """Team scenarios from data/scenarios.json (slide format or template format)."""
+    from rl.scenario_io import load_normalized
+
+    path = ROOT / "data" / "scenarios.json"
+    if not path.exists():
+        return []
+    return [
+        Scenario(sid=s["sid"], title=s["title"], setup=s["setup"], options=s["options"], rewards=s["rewards"])
+        for s in load_normalized(path)
+    ]
 
 
 # =========================
@@ -271,11 +322,22 @@ learns to resolve ethical dilemmas under different cultural value weights.
 # --- Sidebar: Agent setup ---
 st.sidebar.header("👤 2. Agent (Culture) Setup")
 
-culture_presets = get_culture_presets()
+PRESET_SOURCES = {
+    "App defaults (original app-reinforce.py)": get_culture_presets,
+    "Lecture-slide examples (rl/reference_presets.yaml)": get_slide_presets,
+}
+preset_source = st.sidebar.radio("Preset source", list(PRESET_SOURCES))
+culture_presets = PRESET_SOURCES[preset_source]() or get_culture_presets()
+culture_presets, team_preset_cultures = apply_team_presets(culture_presets)
+if team_preset_cultures:
+    st.sidebar.caption(f"Team preset file used for: {', '.join(team_preset_cultures)} (presets/*.yaml)")
+else:
+    st.sidebar.caption("No team preset file yet (presets/AFRICA.yaml is written by the team in W1).")
+
 selected_culture = st.sidebar.selectbox(
     "Culture preset",
     list(culture_presets.keys()),
-    index=list(culture_presets.keys()).index("KOREA") if "KOREA" in culture_presets else 0,
+    index=list(culture_presets.keys()).index("AFRICA") if "AFRICA" in culture_presets else 0,
 )
 
 episodes = st.sidebar.slider("Training episodes", 100, 1000, 300, step=50)
@@ -285,7 +347,10 @@ st.sidebar.subheader("Value weight tuning")
 mod_weights: Dict[str, float] = {}
 culture_defaults = culture_presets[selected_culture]
 for k in FRAMEWORKS:
-    mod_weights[k] = st.sidebar.slider(k.capitalize(), 0.0, 1.0, float(culture_defaults.get(k, 0.0)))
+    mod_weights[k] = st.sidebar.slider(
+        k.capitalize(), 0.0, 1.0, float(culture_defaults.get(k, 0.0)),
+        key=f"w_{preset_source}_{selected_culture}_{k}",
+    )
 
 final_weights = normalize_weights(mod_weights)
 
@@ -300,7 +365,14 @@ st.info(
     "(Emotion, Social, Moral, Identity)."
 )
 
-DEFAULT_SCENARIOS = get_default_scenarios()
+TEAM_SCENARIOS = get_team_scenarios()
+SCENARIO_SETS = {}
+if TEAM_SCENARIOS:
+    SCENARIO_SETS[f"Team AFRICA scenarios (data/scenarios.json, {len(TEAM_SCENARIOS)})"] = TEAM_SCENARIOS
+SCENARIO_SETS["Default scenarios (original 3)"] = get_default_scenarios()
+scenario_set = st.radio("Scenario set", list(SCENARIO_SETS), horizontal=True)
+DEFAULT_SCENARIOS = SCENARIO_SETS[scenario_set]
+set_key = "team" if scenario_set.startswith("Team") else "default"
 custom_scenarios: List[Scenario] = []
 
 tabs = st.tabs([s.title for s in DEFAULT_SCENARIOS])
@@ -319,7 +391,7 @@ for i, (tab, default_scn) in enumerate(zip(tabs, DEFAULT_SCENARIOS)):
                     1.0,
                     float(r_a.get(fw, 0.0)),
                     0.1,
-                    key=f"s{i}a_{fw}",
+                    key=f"{set_key}_s{i}a_{fw}",
                 )
 
         with col_b:
@@ -332,7 +404,7 @@ for i, (tab, default_scn) in enumerate(zip(tabs, DEFAULT_SCENARIOS)):
                     1.0,
                     float(r_b.get(fw, 0.0)),
                     0.1,
-                    key=f"s{i}b_{fw}",
+                    key=f"{set_key}_s{i}b_{fw}",
                 )
 
         custom_scenarios.append(
