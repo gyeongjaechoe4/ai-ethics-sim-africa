@@ -1,4 +1,184 @@
 {
   "version": "1.0.0",
-  "scenarios": []
+  "scenarios": [
+    {
+      "id": "AF-DP-01",
+      "culture_scope": "AFRICA",
+      "domain": "biometric_data",
+      "title": "디지털 토큰 보상을 대가로 한 홍채 데이터 수집",
+      "context": "소득이 낮은 도시 지역 주민들이 디지털 토큰 보상을 받고 해외 기술기업에 홍채 정보를 제공하려 한다. 데이터 보호 당국과 법원은 충분한 설명 후 동의가 없었다고 판단했고, 지역 대표는 참여 허용 여부를 정해야 한다.",
+      "options": {
+        "A": {
+          "label": "보상을 받고 참여를 허용한다 (개인의 선택 존중)",
+          "reward": {
+            "emotion": 0.5,
+            "social": 0.2,
+            "moral": -0.6,
+            "identity": -0.4
+          },
+          "reward_notes": {
+            "emotion": "당장의 생계 부담 완화",
+            "social": "보상이 가구·친족 단위로 나뉘어 쓰임",
+            "moral": "설명 후 동의 원칙 위반 소지",
+            "identity": "신체 데이터에 대한 자기결정권 약화"
+          }
+        },
+        "B": {
+          "label": "수집을 중단하고 기존 데이터 삭제를 요구한다",
+          "reward": {
+            "emotion": -0.4,
+            "social": 0.3,
+            "moral": 0.7,
+            "identity": 0.5
+          },
+          "reward_notes": {
+            "emotion": "기대했던 보상을 잃는 실망",
+            "social": "공동체 전체의 데이터 피해를 함께 막음",
+            "moral": "법원·당국의 데이터 보호 판단에 부합",
+            "identity": "데이터 주권·존엄 회복"
+          }
+        }
+      },
+      "case_date": "2025-05",
+      "sources": [
+        "https://katibainstitute.org/katiba-institute-welcomes-high-court-decision-ordering-deletion-of-unlawfully-collected-worldcoin-data/",
+        "https://www.citizen.digital/tech/court-orders-worldcoin-to-delete-biometric-data-collected-from-kenyans-n362162",
+        "https://digitalpolicyalert.org/event/29826-high-court-at-nairobi-ruled-on-investigation-into-worldcoin-over-alleged-violations-of-data-protection-regulations"
+      ]
+    },
+    {
+      "id": "AF-LB-01",
+      "culture_scope": "AFRICA",
+      "domain": "platform_labor",
+      "title": "AI용 유해 콘텐츠 검수 일자리 유치",
+      "context": "청년 실업률이 높은 도시에 해외 플랫폼의 콘텐츠 검수·데이터 라벨링 일자리가 들어온다. 임금은 지역 평균보다 높지만, 폭력적 영상 노출로 인한 정신건강 피해와 집단 해고를 두고 법정 다툼이 이어지고 있다.",
+      "options": {
+        "A": {
+          "label": "일자리를 유지하고 사후 심리 상담을 보강한다",
+          "reward": {
+            "emotion": -0.5,
+            "social": 0.6,
+            "moral": -0.3,
+            "identity": 0.2
+          },
+          "reward_notes": {
+            "emotion": "검수자의 반복적 트라우마 노출",
+            "social": "임금이 확대가족 부양에 쓰임",
+            "moral": "공정한 노동 조건 기준에 미달",
+            "identity": "지역 디지털 산업 육성이라는 자부심"
+          }
+        },
+        "B": {
+          "label": "노동보호 기준을 충족할 때까지 계약을 중단한다",
+          "reward": {
+            "emotion": 0.4,
+            "social": -0.5,
+            "moral": 0.6,
+            "identity": -0.2
+          },
+          "reward_notes": {
+            "emotion": "정신건강 피해 예방",
+            "social": "일자리가 사라져 가구 소득 감소",
+            "moral": "노동권·안전 기준 준수",
+            "identity": "디지털 경제 진입 기회 포기"
+          }
+        }
+      },
+      "case_date": "2024-09",
+      "sources": [
+        "https://business-humanrights.org/en/latest-news/kenya-appellate-court-rules-that-meta-can-be-sued-in-kenya-over-poor-working-conditions-and-unlawful-dismissal",
+        "https://www.standardmedia.co.ke/business/amp/national/article/2001503117/court-rules-meta-can-be-sued-over-moderator-sackings"
+      ]
+    },
+    {
+      "id": "AF-FN-01",
+      "culture_scope": "AFRICA",
+      "domain": "digital_lending",
+      "title": "대출앱의 연락처 기반 상환 독촉",
+      "context": "소액 대출앱이 연체자의 휴대폰 연락처에 상환 독촉을 보내면 회수율이 오른다. 규제 당국은 이를 금지했고, 업체들은 회수율이 떨어지면 신용 이력이 없는 사람에게 대출을 줄일 수밖에 없다고 주장한다.",
+      "options": {
+        "A": {
+          "label": "사전 동의한 보증 연락처 1명에게만 연체 사실을 알린다",
+          "reward": {
+            "emotion": -0.4,
+            "social": 0.4,
+            "moral": -0.3,
+            "identity": 0.2
+          },
+          "reward_notes": {
+            "emotion": "연체자가 느끼는 수치심",
+            "social": "지인 보증 관행으로 신용 접근성 유지",
+            "moral": "제3자 개인정보 사용 논란",
+            "identity": "채무를 관계 속 책임으로 보는 관점"
+          }
+        },
+        "B": {
+          "label": "본인에게만 연락하고 제3자 통보는 전면 금지한다",
+          "reward": {
+            "emotion": 0.5,
+            "social": -0.3,
+            "moral": 0.6,
+            "identity": -0.1
+          },
+          "reward_notes": {
+            "emotion": "체면·존엄 보호",
+            "social": "대출 축소로 금융 소외층 접근성 감소",
+            "moral": "소비자 보호 규정·개인정보 원칙 준수",
+            "identity": "채무를 개인 문제로만 다룸"
+          }
+        }
+      },
+      "case_date": "2025-07",
+      "sources": [
+        "https://fccpc.gov.ng/wp-content/uploads/2025/08/DIGITAL-CONSUMER-LENDING-2025-LATEST.pdf",
+        "https://www.fccpc.gov.ng/media/press-releases/digital-lending-fccpc-tackles-abuses-issues-landmark-regulations/",
+        "https://www.zikoko.com/money/the-human-cost-of-digital-loan-apps-in-nigeria/"
+      ]
+    },
+    {
+      "id": "AF-SV-01",
+      "culture_scope": "AFRICA",
+      "domain": "public_surveillance",
+      "title": "도시 CCTV 얼굴인식과 국가 신분 DB 연동",
+      "context": "강력범죄에 대응해 정부가 도심 CCTV를 국가 신분증 데이터베이스와 연동하고 얼굴인식으로 용의자를 찾겠다고 발표했다. 시민단체는 집회 참가자 추적과 오인식 피해를 우려한다.",
+      "options": {
+        "A": {
+          "label": "연동을 시행해 범죄 대응을 우선한다",
+          "reward": {
+            "emotion": 0.4,
+            "social": 0.5,
+            "moral": -0.4,
+            "identity": -0.3
+          },
+          "reward_notes": {
+            "emotion": "범죄 불안 감소",
+            "social": "지역사회 치안·질서 회복",
+            "moral": "적법절차·오인식 피해 위험",
+            "identity": "표현·집회의 자유 위축"
+          }
+        },
+        "B": {
+          "label": "독립 영향평가를 마칠 때까지 연동을 보류한다",
+          "reward": {
+            "emotion": -0.3,
+            "social": -0.2,
+            "moral": 0.6,
+            "identity": 0.4
+          },
+          "reward_notes": {
+            "emotion": "범죄 불안 지속",
+            "social": "치안 공백에 대한 주민 불만",
+            "moral": "개인정보 영향평가 절차 준수",
+            "identity": "헌법상 시민 자유 보호"
+          }
+        }
+      },
+      "case_date": "2026-06",
+      "sources": [
+        "https://eastleighvoice.co.ke/news/371470/how-police-plan-to-capture-suspects-using-facial-recognition-linked-to-id-database",
+        "https://idtechwire.com/kenya-plans-to-link-cctv-cameras-with-national-id-records-for-facial-recognition/",
+        "https://techweez.com/2026/06/15/kenya-joins-the-cctv-surveillance-club/"
+      ]
+    }
+  ]
 }

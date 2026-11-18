@@ -1,0 +1,796 @@
+{
+  "config": {
+    "episodes": 500,
+    "alpha": 0.1,
+    "eps_start": 1.0,
+    "eps_min": 0.05,
+    "eps_decay": 0.995,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "tail": 100,
+    "eps_final": 0.082
+  },
+  "weights": {
+    "USA": {
+      "emotion": 0.2,
+      "social": 0.15,
+      "moral": 0.4,
+      "identity": 0.25
+    },
+    "CHINA": {
+      "emotion": 0.15,
+      "social": 0.4,
+      "moral": 0.3,
+      "identity": 0.15
+    },
+    "EUROPE": {
+      "emotion": 0.2,
+      "social": 0.2,
+      "moral": 0.45,
+      "identity": 0.15
+    },
+    "KOREA": {
+      "emotion": 0.25,
+      "social": 0.35,
+      "moral": 0.25,
+      "identity": 0.15
+    },
+    "LATIN_AM": {
+      "emotion": 0.35,
+      "social": 0.3,
+      "moral": 0.15,
+      "identity": 0.2
+    },
+    "MIDDLE_E": {
+      "emotion": 0.2,
+      "social": 0.25,
+      "moral": 0.2,
+      "identity": 0.35
+    },
+    "AFRICA": {
+      "emotion": 0.3,
+      "social": 0.35,
+      "moral": 0.15,
+      "identity": 0.2
+    }
+  },
+  "weights_source": {
+    "USA": "rl/reference_presets.yaml (강의 예시)",
+    "CHINA": "rl/reference_presets.yaml (강의 예시)",
+    "EUROPE": "rl/reference_presets.yaml (강의 예시)",
+    "KOREA": "rl/reference_presets.yaml (강의 예시)",
+    "LATIN_AM": "rl/reference_presets.yaml (강의 예시)",
+    "MIDDLE_E": "rl/reference_presets.yaml (강의 예시)",
+    "AFRICA": "rl/reference_presets.yaml (강의 예시)"
+  },
+  "scenarios": [
+    "AF-DP-01",
+    "AF-LB-01",
+    "AF-FN-01",
+    "AF-SV-01"
+  ],
+  "cells": {
+    "USA": {
+      "AF-DP-01": {
+        "reward": {
+          "mean": 0.3317,
+          "sd": 0.014
+        },
+        "p_A": {
+          "mean": 0.066,
+          "sd": 0.0241
+        },
+        "entropy": {
+          "mean": 0.3451,
+          "sd": 0.0949
+        },
+        "choice": "B",
+        "choice_agreement": 1.0
+      },
+      "AF-LB-01": {
+        "reward": {
+          "mean": 0.1807,
+          "sd": 0.0036
+        },
+        "p_A": {
+          "mean": 0.052,
+          "sd": 0.013
+        },
+        "entropy": {
+          "mean": 0.2929,
+          "sd": 0.0541
+        },
+        "choice": "B",
+        "choice_agreement": 1.0
+      },
+      "AF-FN-01": {
+        "reward": {
+          "mean": 0.2491,
+          "sd": 0.009
+        },
+        "p_A": {
+          "mean": 0.058,
+          "sd": 0.0249
+        },
+        "entropy": {
+          "mean": 0.3135,
+          "sd": 0.0939
+        },
+        "choice": "B",
+        "choice_agreement": 1.0
+      },
+      "AF-SV-01": {
+        "reward": {
+          "mean": 0.2355,
+          "sd": 0.0079
+        },
+        "p_A": {
+          "mean": 0.044,
+          "sd": 0.0241
+        },
+        "entropy": {
+          "mean": 0.251,
+          "sd": 0.1145
+        },
+        "choice": "B",
+        "choice_agreement": 1.0
+      }
+    },
+    "CHINA": {
+      "AF-DP-01": {
+        "reward": {
+          "mean": 0.3166,
+          "sd": 0.0104
+        },
+        "p_A": {
+          "mean": 0.066,
+          "sd": 0.0241
+        },
+        "entropy": {
+          "mean": 0.3451,
+          "sd": 0.0949
+        },
+        "choice": "B",
+        "choice_agreement": 1.0
+      },
+      "AF-LB-01": {
+        "reward": {
+          "mean": 0.098,
+          "sd": 0.0014
+        },
+        "p_A": {
+          "mean": 0.926,
+          "sd": 0.0152
+        },
+        "entropy": {
+          "mean": 0.3788,
+          "sd": 0.055
+        },
+        "choice": "A",
+        "choice_agreement": 1.0
+      },
+      "AF-FN-01": {
+        "reward": {
+          "mean": 0.1154,
+          "sd": 0.002
+        },
+        "p_A": {
+          "mean": 0.058,
+          "sd": 0.0249
+        },
+        "entropy": {
+          "mean": 0.3135,
+          "sd": 0.0939
+        },
+        "choice": "B",
+        "choice_agreement": 1.0
+      },
+      "AF-SV-01": {
+        "reward": {
+          "mean": 0.1141,
+          "sd": 0.0005
+        },
+        "p_A": {
+          "mean": 0.044,
+          "sd": 0.0241
+        },
+        "entropy": {
+          "mean": 0.251,
+          "sd": 0.1145
+        },
+        "choice": "B",
+        "choice_agreement": 1.0
+      }
+    },
+    "EUROPE": {
+      "AF-DP-01": {
+        "reward": {
+          "mean": 0.333,
+          "sd": 0.0135
+        },
+        "p_A": {
+          "mean": 0.066,
+          "sd": 0.0241
+        },
+        "entropy": {
+          "mean": 0.3451,
+          "sd": 0.0949
+        },
+        "choice": "B",
+        "choice_agreement": 1.0
+      },
+      "AF-LB-01": {
+        "reward": {
+          "mean": 0.2041,
+          "sd": 0.004
+        },
+        "p_A": {
+          "mean": 0.052,
+          "sd": 0.013
+        },
+        "entropy": {
+          "mean": 0.2929,
+          "sd": 0.0541
+        },
+        "choice": "B",
+        "choice_agreement": 1.0
+      },
+      "AF-FN-01": {
+        "reward": {
+          "mean": 0.2718,
+          "sd": 0.01
+        },
+        "p_A": {
+          "mean": 0.058,
+          "sd": 0.0249
+        },
+        "entropy": {
+          "mean": 0.3135,
+          "sd": 0.0939
+        },
+        "choice": "B",
+        "choice_agreement": 1.0
+      },
+      "AF-SV-01": {
+        "reward": {
+          "mean": 0.2179,
+          "sd": 0.0066
+        },
+        "p_A": {
+          "mean": 0.044,
+          "sd": 0.0241
+        },
+        "entropy": {
+          "mean": 0.251,
+          "sd": 0.1145
+        },
+        "choice": "B",
+        "choice_agreement": 1.0
+      }
+    },
+    "KOREA": {
+      "AF-DP-01": {
+        "reward": {
+          "mean": 0.2372,
+          "sd": 0.0065
+        },
+        "p_A": {
+          "mean": 0.066,
+          "sd": 0.0241
+        },
+        "entropy": {
+          "mean": 0.3451,
+          "sd": 0.0949
+        },
+        "choice": "B",
+        "choice_agreement": 1.0
+      },
+      "AF-LB-01": {
+        "reward": {
+          "mean": 0.0447,
+          "sd": 0.0001
+        },
+        "p_A": {
+          "mean": 0.052,
+          "sd": 0.013
+        },
+        "entropy": {
+          "mean": 0.2929,
+          "sd": 0.0541
+        },
+        "choice": "B",
+        "choice_agreement": 1.0
+      },
+      "AF-FN-01": {
+        "reward": {
+          "mean": 0.1457,
+          "sd": 0.004
+        },
+        "p_A": {
+          "mean": 0.058,
+          "sd": 0.0249
+        },
+        "entropy": {
+          "mean": 0.3135,
+          "sd": 0.0939
+        },
+        "choice": "B",
+        "choice_agreement": 1.0
+      },
+      "AF-SV-01": {
+        "reward": {
+          "mean": 0.127,
+          "sd": 0.0022
+        },
+        "p_A": {
+          "mean": 0.954,
+          "sd": 0.0336
+        },
+        "entropy": {
+          "mean": 0.2546,
+          "sd": 0.1423
+        },
+        "choice": "A",
+        "choice_agreement": 1.0
+      }
+    },
+    "LATIN_AM": {
+      "AF-DP-01": {
+        "reward": {
+          "mean": 0.1491,
+          "sd": 0.0022
+        },
+        "p_A": {
+          "mean": 0.066,
+          "sd": 0.0241
+        },
+        "entropy": {
+          "mean": 0.3451,
+          "sd": 0.0949
+        },
+        "choice": "B",
+        "choice_agreement": 1.0
+      },
+      "AF-LB-01": {
+        "reward": {
+          "mean": 0.0379,
+          "sd": 0.0005
+        },
+        "p_A": {
+          "mean": 0.052,
+          "sd": 0.013
+        },
+        "entropy": {
+          "mean": 0.2929,
+          "sd": 0.0541
+        },
+        "choice": "B",
+        "choice_agreement": 1.0
+      },
+      "AF-FN-01": {
+        "reward": {
+          "mean": 0.1446,
+          "sd": 0.0045
+        },
+        "p_A": {
+          "mean": 0.058,
+          "sd": 0.0249
+        },
+        "entropy": {
+          "mean": 0.3135,
+          "sd": 0.0939
+        },
+        "choice": "B",
+        "choice_agreement": 1.0
+      },
+      "AF-SV-01": {
+        "reward": {
+          "mean": 0.1624,
+          "sd": 0.0055
+        },
+        "p_A": {
+          "mean": 0.954,
+          "sd": 0.0336
+        },
+        "entropy": {
+          "mean": 0.2546,
+          "sd": 0.1423
+        },
+        "choice": "A",
+        "choice_agreement": 1.0
+      }
+    },
+    "MIDDLE_E": {
+      "AF-DP-01": {
+        "reward": {
+          "mean": 0.2823,
+          "sd": 0.0101
+        },
+        "p_A": {
+          "mean": 0.066,
+          "sd": 0.0241
+        },
+        "entropy": {
+          "mean": 0.3451,
+          "sd": 0.0949
+        },
+        "choice": "B",
+        "choice_agreement": 1.0
+      },
+      "AF-LB-01": {
+        "reward": {
+          "mean": 0.0559,
+          "sd": 0.0008
+        },
+        "p_A": {
+          "mean": 0.926,
+          "sd": 0.0152
+        },
+        "entropy": {
+          "mean": 0.3788,
+          "sd": 0.055
+        },
+        "choice": "A",
+        "choice_agreement": 1.0
+      },
+      "AF-FN-01": {
+        "reward": {
+          "mean": 0.1054,
+          "sd": 0.002
+        },
+        "p_A": {
+          "mean": 0.058,
+          "sd": 0.0249
+        },
+        "entropy": {
+          "mean": 0.3135,
+          "sd": 0.0939
+        },
+        "choice": "B",
+        "choice_agreement": 1.0
+      },
+      "AF-SV-01": {
+        "reward": {
+          "mean": 0.1443,
+          "sd": 0.0031
+        },
+        "p_A": {
+          "mean": 0.044,
+          "sd": 0.0241
+        },
+        "entropy": {
+          "mean": 0.251,
+          "sd": 0.1145
+        },
+        "choice": "B",
+        "choice_agreement": 1.0
+      }
+    },
+    "AFRICA": {
+      "AF-DP-01": {
+        "reward": {
+          "mean": 0.1808,
+          "sd": 0.0034
+        },
+        "p_A": {
+          "mean": 0.066,
+          "sd": 0.0241
+        },
+        "entropy": {
+          "mean": 0.3451,
+          "sd": 0.0949
+        },
+        "choice": "B",
+        "choice_agreement": 1.0
+      },
+      "AF-LB-01": {
+        "reward": {
+          "mean": 0.0506,
+          "sd": 0.0009
+        },
+        "p_A": {
+          "mean": 0.926,
+          "sd": 0.0152
+        },
+        "entropy": {
+          "mean": 0.3788,
+          "sd": 0.055
+        },
+        "choice": "A",
+        "choice_agreement": 1.0
+      },
+      "AF-FN-01": {
+        "reward": {
+          "mean": 0.1092,
+          "sd": 0.0025
+        },
+        "p_A": {
+          "mean": 0.058,
+          "sd": 0.0249
+        },
+        "entropy": {
+          "mean": 0.3135,
+          "sd": 0.0939
+        },
+        "choice": "B",
+        "choice_agreement": 1.0
+      },
+      "AF-SV-01": {
+        "reward": {
+          "mean": 0.1674,
+          "sd": 0.0055
+        },
+        "p_A": {
+          "mean": 0.954,
+          "sd": 0.0336
+        },
+        "entropy": {
+          "mean": 0.2546,
+          "sd": 0.1423
+        },
+        "choice": "A",
+        "choice_agreement": 1.0
+      }
+    }
+  },
+  "per_culture": {
+    "USA": {
+      "reward": {
+        "mean": 0.2493,
+        "sd": 0.0048
+      },
+      "entropy": {
+        "mean": 0.3006,
+        "sd": 0.0525
+      },
+      "p_A": {
+        "mean": 0.055,
+        "sd": 0.0125
+      },
+      "share_A_choices": 0.0
+    },
+    "CHINA": {
+      "reward": {
+        "mean": 0.161,
+        "sd": 0.0026
+      },
+      "entropy": {
+        "mean": 0.3221,
+        "sd": 0.0429
+      },
+      "p_A": {
+        "mean": 0.2735,
+        "sd": 0.0104
+      },
+      "share_A_choices": 0.25
+    },
+    "EUROPE": {
+      "reward": {
+        "mean": 0.2567,
+        "sd": 0.0046
+      },
+      "entropy": {
+        "mean": 0.3006,
+        "sd": 0.0525
+      },
+      "p_A": {
+        "mean": 0.055,
+        "sd": 0.0125
+      },
+      "share_A_choices": 0.0
+    },
+    "KOREA": {
+      "reward": {
+        "mean": 0.1387,
+        "sd": 0.0017
+      },
+      "entropy": {
+        "mean": 0.3015,
+        "sd": 0.0424
+      },
+      "p_A": {
+        "mean": 0.2825,
+        "sd": 0.0135
+      },
+      "share_A_choices": 0.25
+    },
+    "LATIN_AM": {
+      "reward": {
+        "mean": 0.1235,
+        "sd": 0.0016
+      },
+      "entropy": {
+        "mean": 0.3015,
+        "sd": 0.0424
+      },
+      "p_A": {
+        "mean": 0.2825,
+        "sd": 0.0135
+      },
+      "share_A_choices": 0.25
+    },
+    "MIDDLE_E": {
+      "reward": {
+        "mean": 0.147,
+        "sd": 0.0027
+      },
+      "entropy": {
+        "mean": 0.3221,
+        "sd": 0.0429
+      },
+      "p_A": {
+        "mean": 0.2735,
+        "sd": 0.0104
+      },
+      "share_A_choices": 0.25
+    },
+    "AFRICA": {
+      "reward": {
+        "mean": 0.127,
+        "sd": 0.0019
+      },
+      "entropy": {
+        "mean": 0.323,
+        "sd": 0.0559
+      },
+      "p_A": {
+        "mean": 0.501,
+        "sd": 0.0121
+      },
+      "share_A_choices": 0.5
+    }
+  },
+  "diversity": {
+    "AF-DP-01": {
+      "D": 0.1429,
+      "choices": {
+        "USA": "B",
+        "CHINA": "B",
+        "EUROPE": "B",
+        "KOREA": "B",
+        "LATIN_AM": "B",
+        "MIDDLE_E": "B",
+        "AFRICA": "B"
+      },
+      "minority_share": 0.0
+    },
+    "AF-LB-01": {
+      "D": 0.2857,
+      "choices": {
+        "USA": "B",
+        "CHINA": "A",
+        "EUROPE": "B",
+        "KOREA": "B",
+        "LATIN_AM": "B",
+        "MIDDLE_E": "A",
+        "AFRICA": "A"
+      },
+      "minority_share": 0.4286
+    },
+    "AF-FN-01": {
+      "D": 0.1429,
+      "choices": {
+        "USA": "B",
+        "CHINA": "B",
+        "EUROPE": "B",
+        "KOREA": "B",
+        "LATIN_AM": "B",
+        "MIDDLE_E": "B",
+        "AFRICA": "B"
+      },
+      "minority_share": 0.0
+    },
+    "AF-SV-01": {
+      "D": 0.2857,
+      "choices": {
+        "USA": "B",
+        "CHINA": "B",
+        "EUROPE": "B",
+        "KOREA": "A",
+        "LATIN_AM": "A",
+        "MIDDLE_E": "B",
+        "AFRICA": "A"
+      },
+      "minority_share": 0.4286
+    }
+  },
+  "pearson": {
+    "per_scenario": {
+      "AF-DP-01": {
+        "emotion": {
+          "favored": "A",
+          "r": null
+        },
+        "social": {
+          "favored": "B",
+          "r": null
+        },
+        "moral": {
+          "favored": "B",
+          "r": null
+        },
+        "identity": {
+          "favored": "B",
+          "r": null
+        }
+      },
+      "AF-LB-01": {
+        "emotion": {
+          "favored": "B",
+          "r": 0.2582
+        },
+        "social": {
+          "favored": "A",
+          "r": 0.4951
+        },
+        "moral": {
+          "favored": "B",
+          "r": 0.4322
+        },
+        "identity": {
+          "favored": "A",
+          "r": 0.3347
+        }
+      },
+      "AF-FN-01": {
+        "emotion": {
+          "favored": "B",
+          "r": null
+        },
+        "social": {
+          "favored": "A",
+          "r": null
+        },
+        "moral": {
+          "favored": "B",
+          "r": null
+        },
+        "identity": {
+          "favored": "A",
+          "r": null
+        }
+      },
+      "AF-SV-01": {
+        "emotion": {
+          "favored": "A",
+          "r": 0.8714
+        },
+        "social": {
+          "favored": "A",
+          "r": 0.4951
+        },
+        "moral": {
+          "favored": "B",
+          "r": 0.6953
+        },
+        "identity": {
+          "favored": "B",
+          "r": 0.3043
+        }
+      }
+    },
+    "pooled": {
+      "emotion": {
+        "r": 0.2848,
+        "n": 28
+      },
+      "social": {
+        "r": 0.2478,
+        "n": 28
+      },
+      "moral": {
+        "r": 0.3449,
+        "n": 28
+      },
+      "identity": {
+        "r": 0.1592,
+        "n": 28
+      }
+    }
+  }
+}
