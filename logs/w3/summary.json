@@ -1,0 +1,450 @@
+{
+  "protocol": "student_package workbook W3",
+  "config": {
+    "episodes": 500,
+    "lr": 0.1,
+    "epsilon": 0.5,
+    "decay": 0.99,
+    "min_epsilon": 0.01,
+    "scale": 10.0,
+    "seeds": [
+      42,
+      123,
+      2026,
+      7777,
+      31337
+    ],
+    "tail": 100
+  },
+  "weights": {
+    "USA": {
+      "emotion": 0.2,
+      "social": 0.15,
+      "moral": 0.4,
+      "identity": 0.25
+    },
+    "CHINA": {
+      "emotion": 0.15,
+      "social": 0.4,
+      "moral": 0.3,
+      "identity": 0.15
+    },
+    "EUROPE": {
+      "emotion": 0.2,
+      "social": 0.2,
+      "moral": 0.45,
+      "identity": 0.15
+    },
+    "KOREA": {
+      "emotion": 0.25,
+      "social": 0.35,
+      "moral": 0.25,
+      "identity": 0.15
+    },
+    "LATIN_AM": {
+      "emotion": 0.35,
+      "social": 0.3,
+      "moral": 0.15,
+      "identity": 0.2
+    },
+    "MIDDLE_E": {
+      "emotion": 0.2,
+      "social": 0.25,
+      "moral": 0.2,
+      "identity": 0.35
+    },
+    "AFRICA": {
+      "emotion": 0.3,
+      "social": 0.35,
+      "moral": 0.15,
+      "identity": 0.2
+    }
+  },
+  "weights_source": {
+    "USA": "rl/reference_presets.yaml (강의 예시)",
+    "CHINA": "rl/reference_presets.yaml (강의 예시)",
+    "EUROPE": "rl/reference_presets.yaml (강의 예시)",
+    "KOREA": "rl/reference_presets.yaml (강의 예시)",
+    "LATIN_AM": "rl/reference_presets.yaml (강의 예시)",
+    "MIDDLE_E": "rl/reference_presets.yaml (강의 예시)",
+    "AFRICA": "rl/reference_presets.yaml (강의 예시)"
+  },
+  "scenarios": [
+    "S1_afdp01",
+    "S2_aflb01",
+    "S3_affn01",
+    "S4_afsv01"
+  ],
+  "per_culture": {
+    "USA": {
+      "reward": {
+        "mean": 10.7756,
+        "sd": 0.0553
+      },
+      "entropy": {
+        "mean": 0.1378,
+        "sd": 0.0021
+      },
+      "diversity": {
+        "mean": 0.012,
+        "sd": 0.0084
+      },
+      "pearson_r": {
+        "mean": -0.9241,
+        "sd": 0.0328
+      },
+      "p_max": 2.52e-166,
+      "p_min": 1.34e-289,
+      "seeds_p_lt_0.05": 5
+    },
+    "CHINA": {
+      "reward": {
+        "mean": 6.8421,
+        "sd": 0.0078
+      },
+      "entropy": {
+        "mean": 0.4912,
+        "sd": 0.0004
+      },
+      "diversity": {
+        "mean": 0.505,
+        "sd": 0.0094
+      },
+      "pearson_r": {
+        "mean": -0.2962,
+        "sd": 0.1562
+      },
+      "p_max": 0.617,
+      "p_min": 9.86e-21,
+      "seeds_p_lt_0.05": 4
+    },
+    "EUROPE": {
+      "reward": {
+        "mean": 11.0729,
+        "sd": 0.0546
+      },
+      "entropy": {
+        "mean": 0.1374,
+        "sd": 0.0018
+      },
+      "diversity": {
+        "mean": 0.012,
+        "sd": 0.0084
+      },
+      "pearson_r": {
+        "mean": -0.9254,
+        "sd": 0.0351
+      },
+      "p_max": 2.46e-168,
+      "p_min": 4.96e-299,
+      "seeds_p_lt_0.05": 5
+    },
+    "KOREA": {
+      "reward": {
+        "mean": 5.8333,
+        "sd": 0.013
+      },
+      "entropy": {
+        "mean": 0.5053,
+        "sd": 0.0011
+      },
+      "diversity": {
+        "mean": 0.504,
+        "sd": 0.0065
+      },
+      "pearson_r": {
+        "mean": -0.1697,
+        "sd": 0.2316
+      },
+      "p_max": 0.496,
+      "p_min": 1.72e-27,
+      "seeds_p_lt_0.05": 2
+    },
+    "LATIN_AM": {
+      "reward": {
+        "mean": 5.1679,
+        "sd": 0.0155
+      },
+      "entropy": {
+        "mean": 0.5306,
+        "sd": 0.0012
+      },
+      "diversity": {
+        "mean": 0.504,
+        "sd": 0.0065
+      },
+      "pearson_r": {
+        "mean": -0.117,
+        "sd": 0.1082
+      },
+      "p_max": 0.813,
+      "p_min": 1.27e-07,
+      "seeds_p_lt_0.05": 3
+    },
+    "MIDDLE_E": {
+      "reward": {
+        "mean": 6.2863,
+        "sd": 0.0165
+      },
+      "entropy": {
+        "mean": 0.4674,
+        "sd": 0.0005
+      },
+      "diversity": {
+        "mean": 0.505,
+        "sd": 0.0094
+      },
+      "pearson_r": {
+        "mean": -0.4623,
+        "sd": 0.0367
+      },
+      "p_max": 5.88e-24,
+      "p_min": 9.61e-36,
+      "seeds_p_lt_0.05": 5
+    },
+    "AFRICA": {
+      "reward": {
+        "mean": 5.3263,
+        "sd": 0.0131
+      },
+      "entropy": {
+        "mean": 0.5406,
+        "sd": 0.0008
+      },
+      "diversity": {
+        "mean": 0.991,
+        "sd": 0.0055
+      },
+      "pearson_r": {
+        "mean": 0.741,
+        "sd": 0.058
+      },
+      "p_max": 4.23e-65,
+      "p_min": 1.54e-116,
+      "seeds_p_lt_0.05": 5
+    }
+  },
+  "option_A_rate_tail100": {
+    "USA": {
+      "S1_afdp01": {
+        "mean": 0.0,
+        "sd": 0.0
+      },
+      "S2_aflb01": {
+        "mean": 0.012,
+        "sd": 0.011
+      },
+      "S3_affn01": {
+        "mean": 0.006,
+        "sd": 0.0089
+      },
+      "S4_afsv01": {
+        "mean": 0.006,
+        "sd": 0.0089
+      }
+    },
+    "CHINA": {
+      "S1_afdp01": {
+        "mean": 0.0,
+        "sd": 0.0
+      },
+      "S2_aflb01": {
+        "mean": 0.998,
+        "sd": 0.0045
+      },
+      "S3_affn01": {
+        "mean": 0.006,
+        "sd": 0.0089
+      },
+      "S4_afsv01": {
+        "mean": 0.006,
+        "sd": 0.0089
+      }
+    },
+    "EUROPE": {
+      "S1_afdp01": {
+        "mean": 0.0,
+        "sd": 0.0
+      },
+      "S2_aflb01": {
+        "mean": 0.012,
+        "sd": 0.011
+      },
+      "S3_affn01": {
+        "mean": 0.006,
+        "sd": 0.0089
+      },
+      "S4_afsv01": {
+        "mean": 0.006,
+        "sd": 0.0089
+      }
+    },
+    "KOREA": {
+      "S1_afdp01": {
+        "mean": 0.0,
+        "sd": 0.0
+      },
+      "S2_aflb01": {
+        "mean": 0.012,
+        "sd": 0.011
+      },
+      "S3_affn01": {
+        "mean": 0.006,
+        "sd": 0.0089
+      },
+      "S4_afsv01": {
+        "mean": 0.99,
+        "sd": 0.0071
+      }
+    },
+    "LATIN_AM": {
+      "S1_afdp01": {
+        "mean": 0.0,
+        "sd": 0.0
+      },
+      "S2_aflb01": {
+        "mean": 0.012,
+        "sd": 0.011
+      },
+      "S3_affn01": {
+        "mean": 0.006,
+        "sd": 0.0089
+      },
+      "S4_afsv01": {
+        "mean": 0.99,
+        "sd": 0.0071
+      }
+    },
+    "MIDDLE_E": {
+      "S1_afdp01": {
+        "mean": 0.0,
+        "sd": 0.0
+      },
+      "S2_aflb01": {
+        "mean": 0.998,
+        "sd": 0.0045
+      },
+      "S3_affn01": {
+        "mean": 0.006,
+        "sd": 0.0089
+      },
+      "S4_afsv01": {
+        "mean": 0.006,
+        "sd": 0.0089
+      }
+    },
+    "AFRICA": {
+      "S1_afdp01": {
+        "mean": 0.0,
+        "sd": 0.0
+      },
+      "S2_aflb01": {
+        "mean": 0.998,
+        "sd": 0.0045
+      },
+      "S3_affn01": {
+        "mean": 0.006,
+        "sd": 0.0089
+      },
+      "S4_afsv01": {
+        "mean": 0.99,
+        "sd": 0.0071
+      }
+    }
+  },
+  "overall_option_A_rate": 0.2171,
+  "anova_reward_across_cultures": {
+    "F": 31970.752,
+    "p": 2.39e-52
+  },
+  "sensitivity_AFRICA_pm0.05_200ep": [
+    {
+      "frame": "emotion",
+      "delta": -0.05,
+      "weights": {
+        "emotion": 0.2632,
+        "social": 0.3684,
+        "moral": 0.1579,
+        "identity": 0.2105
+      },
+      "flips": {}
+    },
+    {
+      "frame": "emotion",
+      "delta": 0.05,
+      "weights": {
+        "emotion": 0.3333,
+        "social": 0.3333,
+        "moral": 0.1429,
+        "identity": 0.1905
+      },
+      "flips": {}
+    },
+    {
+      "frame": "social",
+      "delta": -0.05,
+      "weights": {
+        "emotion": 0.3158,
+        "social": 0.3158,
+        "moral": 0.1579,
+        "identity": 0.2105
+      },
+      "flips": {}
+    },
+    {
+      "frame": "social",
+      "delta": 0.05,
+      "weights": {
+        "emotion": 0.2857,
+        "social": 0.381,
+        "moral": 0.1429,
+        "identity": 0.1905
+      },
+      "flips": {}
+    },
+    {
+      "frame": "moral",
+      "delta": -0.05,
+      "weights": {
+        "emotion": 0.3158,
+        "social": 0.3684,
+        "moral": 0.1053,
+        "identity": 0.2105
+      },
+      "flips": {}
+    },
+    {
+      "frame": "moral",
+      "delta": 0.05,
+      "weights": {
+        "emotion": 0.2857,
+        "social": 0.3333,
+        "moral": 0.1905,
+        "identity": 0.1905
+      },
+      "flips": {}
+    },
+    {
+      "frame": "identity",
+      "delta": -0.05,
+      "weights": {
+        "emotion": 0.3158,
+        "social": 0.3684,
+        "moral": 0.1579,
+        "identity": 0.1579
+      },
+      "flips": {}
+    },
+    {
+      "frame": "identity",
+      "delta": 0.05,
+      "weights": {
+        "emotion": 0.2857,
+        "social": 0.3333,
+        "moral": 0.1429,
+        "identity": 0.2381
+      },
+      "flips": {}
+    }
+  ]
+}
