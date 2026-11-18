@@ -16,7 +16,27 @@ jobs:
           python-version: "3.11"
           cache: pip
       - run: pip install -r requirements.txt
-      - name: Validate presets and scenarios
+      - name: Validate presets and scenarios (slide format)
         run: python scripts/validate.py
+      - name: JSON syntax (json.tool)
+        run: |
+          python -m json.tool data/scenarios.json > /dev/null
+          python -m json.tool data/scenarios.template.json > /dev/null
+      - name: Validate template-format export (student_package validator)
+        run: python scripts/validate_scenarios.py --file data/scenarios.template.json --schema schemas/scenario.template.schema.json
+      - name: App syntax check (ast.parse)
+        run: |
+          python - <<'PY'
+          import ast, pathlib, sys
+          failed = False
+          for p in ["app.py", "app_reinforce.py"]:
+              try:
+                  ast.parse(pathlib.Path(p).read_text(encoding="utf-8"))
+                  print(f"[ok] {p}")
+              except SyntaxError as e:
+                  print(f"[FAIL] {p}: {e}")
+                  failed = True
+          sys.exit(1 if failed else 0)
+          PY
       - name: Run tests
         run: pytest -q

@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ethics-agent-game.streamlit.app/schemas/scenario.schema.json",
+  "title": "EthicsAgentGameScenarioSet",
+  "description": "Global AI Ethics Simulator 팀 시나리오 세트 스키마 (Week2 산출물)",
+  "type": "object",
+  "required": ["culture", "team", "scenarios"],
+  "additionalProperties": false,
+  "properties": {
+    "culture": {
+      "type": "string",
+      "enum": ["USA", "CHINA", "EUROPE", "KOREA", "LATIN_AM", "MIDDLE_E", "AFRICA"]
+    },
+    "team": {
+      "type": "string",
+      "pattern": "^T[0-9]+$"
+    },
+    "weights": {
+      "type": "object",
+      "required": ["emotion", "social", "moral", "identity"],
+      "additionalProperties": false,
+      "properties": {
+        "emotion":  {"type": "number", "minimum": 0.0, "maximum": 1.0},
+        "social":   {"type": "number", "minimum": 0.0, "maximum": 1.0},
+        "moral":    {"type": "number", "minimum": 0.0, "maximum": 1.0},
+        "identity": {"type": "number", "minimum": 0.0, "maximum": 1.0}
+      }
+    },
+    "scenarios": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["sid", "title", "setup", "options", "rewards"],
+        "additionalProperties": false,
+        "properties": {
+          "sid":   {"type": "string", "pattern": "^S[0-9]+(_[a-z0-9]+)?$"},
+          "title": {"type": "string", "minLength": 4},
+          "setup": {"type": "string", "minLength": 10},
+          "options": {
+            "type": "object",
+            "required": ["A", "B"],
+            "additionalProperties": false,
+            "properties": {
+              "A": {"type": "string", "minLength": 2},
+              "B": {"type": "string", "minLength": 2}
+            }
+          },
+          "rewards": {
+            "type": "object",
+            "required": ["A", "B"],
+            "additionalProperties": false,
+            "properties": {
+              "A": {"$ref": "#/definitions/rewardVector"},
+              "B": {"$ref": "#/definitions/rewardVector"}
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "rewardVector": {
+      "type": "object",
+      "required": ["emotion", "social", "moral", "identity"],
+      "additionalProperties": false,
+      "properties": {
+        "emotion":  {"type": "number", "minimum": -1.0, "maximum": 1.0},
+        "social":   {"type": "number", "minimum": -1.0, "maximum": 1.0},
+        "moral":    {"type": "number", "minimum": -1.0, "maximum": 1.0},
+        "identity": {"type": "number", "minimum": -1.0, "maximum": 1.0}
+      }
+    }
+  }
+}
