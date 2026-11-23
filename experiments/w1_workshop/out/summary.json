@@ -1,0 +1,124 @@
+{
+  "plan": {
+    "baseline_weights_raw": {
+      "emotion": 0.15,
+      "social": 0.4,
+      "moral": 0.25,
+      "identity": 0.2
+    },
+    "learn": {
+      "lr": 0.1,
+      "epsilon": 0.5,
+      "decay": 0.99,
+      "min_eps": 0.01
+    },
+    "episodes": 300,
+    "seed_baseline": 42,
+    "seeds": [
+      42,
+      123,
+      2026,
+      7777,
+      31337
+    ],
+    "window": [
+      251,
+      300
+    ],
+    "factor": "identity",
+    "levels": {
+      "A": 0.2,
+      "B": 0.3
+    },
+    "scenario": "default-v1 (app_reinforce.py get_default_scenarios)"
+  },
+  "env": {
+    "python": "3.13.18",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "commit": "b8f1e54",
+    "platform": "Linux-6.18.44-fc-v726-x86_64-with-glibc2.39"
+  },
+  "replication": {
+    "rows_run1": 300,
+    "rows_run2": 300,
+    "max_abs_diff": 0.0,
+    "tolerance": 1e-09,
+    "sha_run1": "4a4c631bbb19",
+    "sha_run2": "4a4c631bbb19",
+    "identical_files": true,
+    "pass": true
+  },
+  "comparison": {
+    "factor": "identity",
+    "levels_raw": {
+      "A": 0.2,
+      "B": 0.3
+    },
+    "weights_A": {
+      "emotion": 0.15,
+      "social": 0.4,
+      "moral": 0.25,
+      "identity": 0.2
+    },
+    "weights_B": {
+      "emotion": 0.13636363636363635,
+      "social": 0.36363636363636365,
+      "moral": 0.22727272727272727,
+      "identity": 0.2727272727272727
+    },
+    "planned_pairs": 5,
+    "completed": 5,
+    "missing": 0,
+    "up": 0,
+    "tie": 5,
+    "down": 0,
+    "mean_delta_div": 0.0,
+    "sd_delta_div": 0.0,
+    "mean_delta_reward": -0.7532800000000001,
+    "sign_test_p_lower_div(B<A)": NaN
+  },
+  "baseline_seed42": {
+    "diversity_mean": 0.0267,
+    "diversity_sd": 0.132,
+    "reward_mean": 12.406,
+    "reward_sd": 1.7024,
+    "entropy_mean": 0.0415,
+    "A_ratio": 0.0133,
+    "final_greedy_choice": "BBB"
+  },
+  "korea_ref_seed42": {
+    "diversity_mean": 0.6667,
+    "diversity_sd": 0.0,
+    "reward_mean": 9.032,
+    "reward_sd": 0.8314,
+    "entropy_mean": 0.2638,
+    "A_ratio": 0.3467,
+    "final_greedy_choice": "ABB"
+  },
+  "intro_professor_table_check": {
+    "pairs": 12,
+    "all_match": true
+  },
+  "intro_africa_100_vs_300": {
+    "seeds": [
+      889778,
+      44101,
+      521359,
+      236730,
+      432905,
+      568449,
+      933293,
+      516177,
+      731696,
+      919940,
+      65901,
+      56330
+    ],
+    "up": 7,
+    "down": 2,
+    "tie": 3,
+    "mean_delta": 1.066,
+    "sign_test_p_one_sided": 0.08984375
+  }
+}
