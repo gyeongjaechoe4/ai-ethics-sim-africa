@@ -49,51 +49,6 @@
       ]
     },
     {
-      "id": "AF-LB-01",
-      "culture_scope": "AFRICA",
-      "domain": "platform_labor",
-      "title": "AI용 유해 콘텐츠 검수 일자리 유치",
-      "context": "청년 실업률이 높은 도시에 해외 플랫폼의 콘텐츠 검수·데이터 라벨링 일자리가 들어온다. 임금은 지역 평균보다 높지만, 폭력적 영상 노출로 인한 정신건강 피해와 집단 해고를 두고 법정 다툼이 이어지고 있다.",
-      "options": {
-        "A": {
-          "label": "일자리를 유지하고 심리 상담을 보강한다",
-          "reward": {
-            "emotion": -0.5,
-            "social": 0.5,
-            "moral": -0.3,
-            "identity": 0.2
-          },
-          "reward_notes": {
-            "emotion": "검수자의 반복적 트라우마 노출 (소송으로 확인)",
-            "social": "가구 소득과 청년 일자리 유지",
-            "moral": "노동 조건 미달 논란 (법원 본안 판단 전이라 0.3)",
-            "identity": "지역 디지털 산업 육성에 대한 자부심"
-          }
-        },
-        "B": {
-          "label": "노동보호 기준을 충족할 때까지 계약을 중단한다",
-          "reward": {
-            "emotion": 0.3,
-            "social": -0.3,
-            "moral": 0.3,
-            "identity": -0.2
-          },
-          "reward_notes": {
-            "emotion": "정신건강 피해 예방 (실업 불안이 있어 0.3)",
-            "social": "일시 중단으로 가구 소득 감소",
-            "moral": "노동권·안전 기준 준수",
-            "identity": "디지털 경제 진입 기회 지연"
-          }
-        }
-      },
-      "case_country": "Kenya",
-      "case_date": "2024-09",
-      "sources": [
-        "https://business-humanrights.org/en/latest-news/kenya-appellate-court-rules-that-meta-can-be-sued-in-kenya-over-poor-working-conditions-and-unlawful-dismissal",
-        "https://www.standardmedia.co.ke/business/amp/national/article/2001503117/court-rules-meta-can-be-sued-over-moderator-sackings"
-      ]
-    },
-    {
       "id": "AF-SV-01",
       "culture_scope": "AFRICA",
       "domain": "public_surveillance",
@@ -137,6 +92,53 @@
         "https://eastleighvoice.co.ke/news/371470/how-police-plan-to-capture-suspects-using-facial-recognition-linked-to-id-database",
         "https://idtechwire.com/kenya-plans-to-link-cctv-cameras-with-national-id-records-for-facial-recognition/",
         "https://techweez.com/2026/06/15/kenya-joins-the-cctv-surveillance-club/"
+      ]
+    },
+    {
+      "id": "AF-EN-01",
+      "culture_scope": "AFRICA",
+      "domain": "environment_mining",
+      "title": "소규모 금 채굴과 비상사태 선포",
+      "context": "무허가 소규모 금 채굴로 강과 식수원이 수은·청산가리에 오염된다. 시민단체·노조는 비상사태 선포를 요구하고 정부는 선포 없이 단속하겠다고 한다. 지역 당국은 전면 단속과 단계적 합법화 중 하나를 골라야 한다.",
+      "options": {
+        "A": {
+          "label": "비상사태를 선포하고 무허가 채굴을 전면 단속한다",
+          "reward": {
+            "emotion": 0.3,
+            "social": -0.3,
+            "moral": 0.3,
+            "identity": 0.2
+          },
+          "reward_notes": {
+            "emotion": "식수 오염 불안 해소 (생계 불안도 함께 커져 0.3)",
+            "social": "채굴에 기대는 가구의 생계 상실. 공동체 전체의 식수를 지키는 효과가 일부 상쇄해 0.3",
+            "moral": "환경법 집행. 비상사태는 헌법 31조에 따른 기본권 제한을 동반해 0.3",
+            "identity": "땅과 강을 함께 지킨다는 공동의 책임감 (근거 약해 0.2)"
+          }
+        },
+        "B": {
+          "label": "면허 발급과 수은 사용 금지를 조건으로 단계적으로 합법화한다",
+          "reward": {
+            "emotion": -0.3,
+            "social": 0.5,
+            "moral": -0.2,
+            "identity": -0.2
+          },
+          "reward_notes": {
+            "emotion": "오염이 당분간 이어지는 불안",
+            "social": "약 100만 명 직접 고용, 400만~450만 명 부양을 유지 (UNDP 2025)",
+            "moral": "무허가 채굴을 사후 인정. 기존 면허 제도 안의 선택지라 0.2",
+            "identity": "땅과 강의 훼손이 이어짐 (근거 약해 0.2)"
+          }
+        }
+      },
+      "case_country": "Ghana",
+      "case_date": "2025-10",
+      "sources": [
+        "https://www.jurist.org/features/2025/10/20/explainer-can-ghanas-president-declare-an-emergency-to-stop-illegal-mining/",
+        "https://gna.org.gh/2025/09/coalition-against-galamsey-demands-declaration-of-state-of-emergency-to-tackle-illegal-mining/",
+        "https://allafrica.com/stories/202509120139.html",
+        "https://www.undp.org/ghana/press-releases/transforming-ghanas-asgm-sector-through-inclusive-financing-and-responsible-mining"
       ]
     }
   ]
