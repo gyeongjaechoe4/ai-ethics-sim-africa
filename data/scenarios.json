@@ -1,4 +1,145 @@
 {
-  "version": "1.0.0",
-  "scenarios": []
+  "version": "1.1.0",
+  "scenarios": [
+    {
+      "id": "AF-DP-01",
+      "culture_scope": "AFRICA",
+      "domain": "biometric_data",
+      "title": "디지털 토큰 보상을 대가로 한 홍채 데이터 수집",
+      "context": "해외 기업이 디지털 토큰을 주고 주민 30만여 명의 홍채 정보를 모았다. 법원은 금전 보상이 설명 후 동의를 대신했다며 삭제를 명령하고 정부에 지침을 만들라고 했다. 당국은 보상형 생체정보 수집을 조건부로 허용할지 정해야 한다.",
+      "options": {
+        "A": {
+          "label": "영향평가와 감독을 조건으로 보상형 수집을 허용한다",
+          "reward": {
+            "emotion": 0.5,
+            "social": -0.2,
+            "moral": -0.2,
+            "identity": -0.2
+          },
+          "reward_notes": {
+            "emotion": "1인당 약 7,000실링 보상으로 당장의 생계 부담 완화 (30만여 명이 참여해 수요가 확실)",
+            "social": "개인 거래로 생긴 데이터 위험을 공동체 전체가 떠안음. 보상이 가족 생계에 쓰이는 이점이 일부 상쇄해 0.2",
+            "moral": "법원은 보상이 동의의 자발성을 훼손한다고 봄. 영향평가·감독 조건이 있어 정면 위반은 아니라 0.2",
+            "identity": "신체 정보를 돈과 바꾸는 데서 오는 존엄 훼손 (근거 약해 0.2)"
+          }
+        },
+        "B": {
+          "label": "보상을 대가로 한 생체정보 수집을 금지한다",
+          "reward": {
+            "emotion": -0.3,
+            "social": 0.3,
+            "moral": 0.3,
+            "identity": 0.2
+          },
+          "reward_notes": {
+            "emotion": "기대했던 보상을 잃는 실망",
+            "social": "공동체 전체의 데이터 피해를 함께 막음. 참여를 원한 주민의 선택은 막혀 0.3",
+            "moral": "보상이 동의를 무효로 만든다는 법원 판단에 부합. 법원은 영향평가가 있으면 처리를 허용할 여지도 남겨 0.3",
+            "identity": "신체 정보에 대한 존엄 보호"
+          }
+        }
+      },
+      "case_country": "Kenya",
+      "case_date": "2025-05",
+      "sources": [
+        "https://www.standardmedia.co.ke/business/amp/national/article/2001518151/blow-to-worldcoin-as-court-orders-deletion-of-data",
+        "https://www.michalsons.com/blog/katiba-v-tools-for-humanity-and-others-biometric-data/78291",
+        "https://www.citizen.digital/tech/court-orders-worldcoin-to-delete-biometric-data-collected-from-kenyans-n362162",
+        "https://montrealethics.ai/research-summary-from-rationality-to-relationality-ubuntu-as-an-ethical-human-rights-framework-for-artificial-intelligence-governance/"
+      ]
+    },
+    {
+      "id": "AF-SV-01",
+      "culture_scope": "AFRICA",
+      "domain": "public_surveillance",
+      "title": "도시 CCTV 얼굴인식과 국가 신분 DB 연동",
+      "context": "강력범죄에 대응해 정부가 도심 CCTV를 국가 신분증 데이터베이스와 연동하고 얼굴인식으로 용의자를 찾겠다고 발표했다. 시민단체는 집회 참가자 추적과 오인식 피해를 우려한다.",
+      "options": {
+        "A": {
+          "label": "연동을 시행해 범죄 대응을 우선한다",
+          "reward": {
+            "emotion": 0.3,
+            "social": 0.2,
+            "moral": -0.3,
+            "identity": -0.3
+          },
+          "reward_notes": {
+            "emotion": "범죄 불안 감소 (얼굴인식의 범죄 감소 효과는 입증 전이라 0.3)",
+            "social": "치안 회복 기대가 있으나 국가가 공동체를 감시해 주민 간·주민과 경찰 간 신뢰가 깎여 0.2",
+            "moral": "오인식·적법절차 위험 (아직 피해 확인 전이라 0.3)",
+            "identity": "감시로 사생활과 인간 존엄이 깎이고 집회 참가자가 표적이 될 위험"
+          }
+        },
+        "B": {
+          "label": "독립 영향평가를 마칠 때까지 연동을 보류한다",
+          "reward": {
+            "emotion": -0.3,
+            "social": -0.2,
+            "moral": 0.5,
+            "identity": 0.3
+          },
+          "reward_notes": {
+            "emotion": "범죄 불안 지속",
+            "social": "치안 공백에 대한 불만 (보류일 뿐 철회가 아니라 0.2)",
+            "moral": "영향평가 후 시행이라는 절차 원칙에 확실히 부합",
+            "identity": "시민 자유 보호"
+          }
+        }
+      },
+      "case_country": "Kenya",
+      "case_date": "2026-06",
+      "sources": [
+        "https://eastleighvoice.co.ke/news/371470/how-police-plan-to-capture-suspects-using-facial-recognition-linked-to-id-database",
+        "https://idtechwire.com/kenya-plans-to-link-cctv-cameras-with-national-id-records-for-facial-recognition/",
+        "https://techweez.com/2026/06/15/kenya-joins-the-cctv-surveillance-club/"
+      ]
+    },
+    {
+      "id": "AF-EN-01",
+      "culture_scope": "AFRICA",
+      "domain": "environment_mining",
+      "title": "소규모 금 채굴과 비상사태 선포",
+      "context": "무허가 소규모 금 채굴로 강과 식수원이 수은·청산가리에 오염된다. 시민단체·노조는 비상사태 선포를 요구하고 정부는 선포 없이 단속하겠다고 한다. 지역 당국은 전면 단속과 단계적 합법화 중 하나를 골라야 한다.",
+      "options": {
+        "A": {
+          "label": "비상사태를 선포하고 무허가 채굴을 전면 단속한다",
+          "reward": {
+            "emotion": 0.3,
+            "social": -0.3,
+            "moral": 0.3,
+            "identity": 0.2
+          },
+          "reward_notes": {
+            "emotion": "식수 오염 불안 해소 (생계 불안도 함께 커져 0.3)",
+            "social": "채굴에 기대는 가구의 생계 상실. 공동체 전체의 식수를 지키는 효과가 일부 상쇄해 0.3",
+            "moral": "환경법 집행. 비상사태는 헌법 31조에 따른 기본권 제한을 동반해 0.3",
+            "identity": "땅과 강을 함께 지킨다는 공동의 책임감 (근거 약해 0.2)"
+          }
+        },
+        "B": {
+          "label": "면허 발급과 수은 사용 금지를 조건으로 단계적으로 합법화한다",
+          "reward": {
+            "emotion": -0.3,
+            "social": 0.5,
+            "moral": -0.2,
+            "identity": -0.2
+          },
+          "reward_notes": {
+            "emotion": "오염이 당분간 이어지는 불안",
+            "social": "약 100만 명 직접 고용, 400만~450만 명 부양을 유지 (UNDP 2025)",
+            "moral": "무허가 채굴을 사후 인정. 기존 면허 제도 안의 선택지라 0.2",
+            "identity": "땅과 강의 훼손이 이어짐 (근거 약해 0.2)"
+          }
+        }
+      },
+      "case_country": "Ghana",
+      "case_date": "2025-10",
+      "sources": [
+        "https://www.jurist.org/features/2025/10/20/explainer-can-ghanas-president-declare-an-emergency-to-stop-illegal-mining/",
+        "https://gna.org.gh/2025/09/coalition-against-galamsey-demands-declaration-of-state-of-emergency-to-tackle-illegal-mining/",
+        "https://allafrica.com/stories/202509120139.html",
+        "https://www.undp.org/ghana/press-releases/transforming-ghanas-asgm-sector-through-inclusive-financing-and-responsible-mining"
+      ]
+    }
+  ]
 }
